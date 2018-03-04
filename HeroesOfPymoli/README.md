@@ -97,7 +97,7 @@ heroes_df.head()
 ```python
 #Function to format floats as money
 def money(n):
-    return f"${round(n,2)}"
+    return '${:,.2f}'.format(n)
 ```
 
 ### Player Count
@@ -193,7 +193,7 @@ pd.DataFrame.from_items([("Number of Unique Items",[item_count]), ("Average Purc
       <td>183</td>
       <td>$2.93</td>
       <td>780</td>
-      <td>$2286.33</td>
+      <td>$2,286.33</td>
     </tr>
   </tbody>
 </table>
@@ -334,7 +334,7 @@ gender_stats
       <th>Male</th>
       <td>633</td>
       <td>$2.95</td>
-      <td>$1867.68</td>
+      <td>$1,867.68</td>
       <td>$4.02</td>
     </tr>
     <tr>
@@ -539,13 +539,13 @@ age_stats
       <td>64</td>
       <td>$3.08</td>
       <td>$197.25</td>
-      <td>$4.2</td>
+      <td>$4.20</td>
     </tr>
     <tr>
       <th>35-39</th>
       <td>42</td>
       <td>$2.84</td>
-      <td>$119.4</td>
+      <td>$119.40</td>
       <td>$4.42</td>
     </tr>
     <tr>
@@ -676,7 +676,7 @@ top_items_df = top_items_df[['Item Name', 'Purchase Count', 'Item Price', 'Total
 top_items_df["Item Price"] = top_items_df["Item Price"].map(money)
 top_items_df["Total Purchase Value"] = top_items_df["Total Purchase Value"].map(money)
 
-top_items_df
+top_items_df.set_index("Item Name", append = True)
 ```
 
 
@@ -700,14 +700,14 @@ top_items_df
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Item Name</th>
+      <th></th>
       <th>Purchase Count</th>
       <th>Item Price</th>
       <th>Total Purchase Value</th>
     </tr>
     <tr>
       <th>Item ID</th>
-      <th></th>
+      <th>Item Name</th>
       <th></th>
       <th></th>
       <th></th>
@@ -716,35 +716,35 @@ top_items_df
   <tbody>
     <tr>
       <th>39</th>
-      <td>Betrayal, Whisper of Grieving Widows</td>
+      <th>Betrayal, Whisper of Grieving Widows</th>
       <td>11</td>
       <td>$2.35</td>
       <td>$25.85</td>
     </tr>
     <tr>
       <th>84</th>
-      <td>Arcane Gem</td>
+      <th>Arcane Gem</th>
       <td>11</td>
       <td>$2.23</td>
       <td>$24.53</td>
     </tr>
     <tr>
       <th>31</th>
-      <td>Trickster</td>
+      <th>Trickster</th>
       <td>9</td>
       <td>$2.07</td>
       <td>$18.63</td>
     </tr>
     <tr>
       <th>175</th>
-      <td>Woeful Adamantite Claymore</td>
+      <th>Woeful Adamantite Claymore</th>
       <td>9</td>
       <td>$1.24</td>
       <td>$11.16</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>Serenity</td>
+      <th>Serenity</th>
       <td>9</td>
       <td>$1.49</td>
       <td>$13.41</td>
@@ -773,7 +773,7 @@ top_items_rev_df = top_items_rev_df[['Item Name', 'Purchase Count', 'Item Price'
 top_items_rev_df["Item Price"] = top_items_rev_df["Item Price"].map(money)
 top_items_rev_df["Total Purchase Value"] = top_items_rev_df["Total Purchase Value"].map(money)
 
-top_items_rev_df
+top_items_rev_df.set_index("Item Name", append = True)
 ```
 
 
@@ -797,14 +797,14 @@ top_items_rev_df
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Item Name</th>
+      <th></th>
       <th>Purchase Count</th>
       <th>Item Price</th>
       <th>Total Purchase Value</th>
     </tr>
     <tr>
       <th>Item ID</th>
-      <th></th>
+      <th>Item Name</th>
       <th></th>
       <th></th>
       <th></th>
@@ -813,35 +813,35 @@ top_items_rev_df
   <tbody>
     <tr>
       <th>34</th>
-      <td>Retribution Axe</td>
+      <th>Retribution Axe</th>
       <td>9</td>
       <td>$4.14</td>
       <td>$37.26</td>
     </tr>
     <tr>
       <th>115</th>
-      <td>Spectral Diamond Doomblade</td>
+      <th>Spectral Diamond Doomblade</th>
       <td>7</td>
       <td>$4.25</td>
       <td>$29.75</td>
     </tr>
     <tr>
       <th>32</th>
-      <td>Orenmir</td>
+      <th>Orenmir</th>
       <td>6</td>
       <td>$4.95</td>
-      <td>$29.7</td>
+      <td>$29.70</td>
     </tr>
     <tr>
       <th>103</th>
-      <td>Singed Scalpel</td>
+      <th>Singed Scalpel</th>
       <td>6</td>
       <td>$4.87</td>
       <td>$29.22</td>
     </tr>
     <tr>
       <th>107</th>
-      <td>Splitter, Foe Of Subtlety</td>
+      <th>Splitter, Foe Of Subtlety</th>
       <td>8</td>
       <td>$3.61</td>
       <td>$28.88</td>

@@ -1257,7 +1257,7 @@ schools_summary.iloc[:,[0,4,5,6,7,8]].groupby("School Type").mean()
 
 
 
-### Three Trends
+### Observable Trends:
 
 1) Smaller schools, charter schools, and schools with lower spending per student all correlate with higher academic performance.
 
